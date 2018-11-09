@@ -1,0 +1,13 @@
+---- BEGIN SSH2 PUBLIC KEY ----
+Comment: "rsa-key-20181103"
+AAAAB3NzaC1yc2EAAAABJQAAAQEA473TyvkZaz3c24txEszcXOf5HdtjcYVT7RMV
+xti95AGxvMxrc8Bs6plaXmIS9pvuXitTqQvYxiK9LaBz8i9odKp7ccyV1Nxdxu5t
+bfZC22xubxxfkN1uzyzqlKSozWaVynGdcofOO5r1aVnHS4svY31WSVn6raM06teI
+d2XRepOk6hppx+xxf8mcsJPB3j/NV3nGePY+eeCdQwLLQp8cIED4LlWkr0LV+kYi
+gC1W3WK4T7n2VsWs3uqwMDU1C91CpcoLkjkhuFF85qzQ6Aq6TUzFwceVgXxYWzxs
+hHkY6nc4UHlttDMjl0wyeesqOzagMITcKUfFgHJRawMqZbAvgQ==
+---- END SSH2 PUBLIC KEY ----
+
+ec2-user@ec2-52-13-106-76.us-west-2.compute.amazonaws.com
+
+ec2-user@ec2-52-13-106-76.us-west-2.compute.amazonaws.com
