@@ -24,5 +24,17 @@ variable "crawler_iam_role" {
 }
 
 variable "csv_data_bucket" {
-  default = "rescale"
+    default = "rescale"
 }
+
+variable "lambda_iam" {
+    default = "Test"
+    description = "Lambda role for execution"
+}
+
+variable "lambda_function_name" {
+    default = "lambda_jsontocsv"
+    description = "Name of the lambda function"
+  
+}
+
