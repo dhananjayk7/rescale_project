@@ -35,6 +35,4 @@ variable "lambda_iam" {
 variable "lambda_function_name" {
     default = "lambda_jsontocsv"
     description = "Name of the lambda function"
-  
 }
-
