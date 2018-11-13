@@ -5,7 +5,7 @@ data "aws_iam_role" "lamda_iam" {
 
 resource "aws_lambda_function" "json_to_csv" {
     function_name = "${var.lambda_function_name}"
-    filename="testrescale-lambda.zip"
+    filename="lambda_function.zip"
     handler = "lambda_function.lambda_handler"
     role = "${data.aws_iam_role.lamda_iam.arn}"
     runtime = "python3.6"
