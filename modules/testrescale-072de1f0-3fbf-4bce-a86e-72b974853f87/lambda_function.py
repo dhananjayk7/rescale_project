@@ -2,7 +2,6 @@ import boto3
 import botocore
 import json
 import csv
-#import datetime
 from datetime import datetime
 from dateutil import tz
 
