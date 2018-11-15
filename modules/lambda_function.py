@@ -20,41 +20,41 @@ def lambda_handler(event, context):
     for o in bucket.objects.all():
         key = o.key
         obj = s3.Object(buck_name,key)
-
-        #parsing the accountid, date and region from the file name
-        a = obj.get()['Body'].read()
-        a = json.loads(a)
         b = key.split(".")
-        fnamelist = b[0].split("_")
-        fdate= fnamelist[1]
-        faccountid = fnamelist[2]
-        fregion = fnamelist[3]
-
-        # reading only files added on the same day
-        if str(fdate) == str(today_date):
-            print("true")
-            s3filekey = fdate+'test'+str(cnt)+'.csv'
-
-            #json to csv
-            f= open('/tmp/'+s3filekey,'w',newline='')
-            writer = csv.writer(f)
-            writer.writerow(["AccountID", "Region","AvailabilityZone","InstanceType","ProductDescription","SpotPrice","Timestamp"])
-            cnt+=1
-            for x in a:
-                writer.writerow([faccountid,
-                            fregion,
-                            x["AvailabilityZone"],
-                            x["InstanceType"],
-                            x["ProductDescription"],
-                            x["SpotPrice"],
-                            x["Timestamp"]])
-            f.close()
-
-            #uploading csvv files to new S3 bucket
-            s3upload.upload_file('/tmp/'+s3filekey,uploadbucketname,s3filekey)
-            
-        else:
-            continue;
+        if b[1] == 'json':
+            #parsing the accountid, date and region from the file name
+            a = obj.get()['Body'].read()
+            a = json.loads(a)
+            fnamelist = b[0].split("_")
+            fdate= fnamelist[1]
+            faccountid = fnamelist[2]
+            fregion = fnamelist[3]
+    
+            # reading only files added on the same day
+            if str(fdate) == str(today_date):
+                print("true")
+                s3filekey = fdate+'test'+str(cnt)+'.csv'
+    
+                #json to csv
+                f= open('/tmp/'+s3filekey,'w',newline='')
+                writer = csv.writer(f)
+                writer.writerow(["AccountID", "Region","AvailabilityZone","InstanceType","ProductDescription","SpotPrice","Timestamp"])
+                cnt+=1
+                for x in a:
+                    writer.writerow([faccountid,
+                                fregion,
+                                x["AvailabilityZone"],
+                                x["InstanceType"],
+                                x["ProductDescription"],
+                                x["SpotPrice"],
+                                x["Timestamp"]])
+                f.close()
+    
+                #uploading csvv files to new S3 bucket
+                s3upload.upload_file('/tmp/'+s3filekey,uploadbucketname,s3filekey)
+                
+            else:
+                continue;
 
     return {
         'statusCode': 200,
